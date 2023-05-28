@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Models", "Models\Models.csproj", "{095ABF3B-4CFC-4869-937C-136BE47522D3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Solitaire", "Solitaire\Solitaire.csproj", "{C86E1CF4-1D9A-4D53-8030-2E774543020A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{095ABF3B-4CFC-4869-937C-136BE47522D3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{095ABF3B-4CFC-4869-937C-136BE47522D3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{095ABF3B-4CFC-4869-937C-136BE47522D3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{095ABF3B-4CFC-4869-937C-136BE47522D3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C86E1CF4-1D9A-4D53-8030-2E774543020A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C86E1CF4-1D9A-4D53-8030-2E774543020A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C86E1CF4-1D9A-4D53-8030-2E774543020A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C86E1CF4-1D9A-4D53-8030-2E774543020A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
