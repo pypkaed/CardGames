@@ -1,6 +1,4 @@
-using Models.Cards;
-
-namespace Models;
+namespace Models.Cards;
 
 public class CardDeck
 {
@@ -16,7 +14,7 @@ public class CardDeck
         _cards = cards;
     }
     
-    public IReadOnlyList<Card> Cards => _cards;
+    public IEnumerable<Card> Cards => _cards;
 
     public void AddCard(Card card)
     {
@@ -25,10 +23,25 @@ public class CardDeck
     
     public void RemoveCard(Card card)
     {
+        // TODO: add checks
         _cards.Remove(card);
     }
 
     public void Shuffle()
+    {
+        // throw new NotImplementedException();
+    }
+
+    public Card GetRandomCard()
+    {
+        throw new NotImplementedException();
+    }
+
+    public Card GetTopCard()
+    {
+        throw new NotImplementedException();
+    }
+    public Card GetBottomCard()
     {
         throw new NotImplementedException();
     }

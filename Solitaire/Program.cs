@@ -1,6 +1,6 @@
-using Models;
 using Models.Cards;
 using Models.Cards.Implementations;
+using Solitaire.Models;
 
 namespace Solitaire;
 
@@ -9,13 +9,12 @@ public class Program
     public static void Main()
     {
         var deck = InitializeSolitaireDeck();
-        foreach (var card in deck.Cards)
-        {
-            Console.WriteLine(card.ToString());
-        }
+        deck.Shuffle();
+
+        var winStacks = InitializeWinStacks();
     }
 
-    public static CardDeck InitializeSolitaireDeck()
+    private static CardDeck InitializeSolitaireDeck()
     {
         var cards = new List<Card>();
         var suits = new List<CardSuit>
@@ -44,5 +43,24 @@ public class Program
         }
         
         return new CardDeck(cards);
+    }
+
+    private static IEnumerable<WinStack> InitializeWinStacks()
+    {
+        var winStacks = new List<WinStack>();
+        var suits = new List<CardSuit>
+        {
+            CardSuit.Clubs,
+            CardSuit.Diamonds,
+            CardSuit.Hearts,
+            CardSuit.Spades,
+        };
+        
+        foreach (var suit in suits)
+        {
+            winStacks.Add(new WinStack(suit));
+        }
+
+        return winStacks;
     }
 }
