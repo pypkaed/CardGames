@@ -1,5 +1,6 @@
 using Models.Cards;
 using Models.Cards.Implementations;
+using Solitaire.Config;
 using Solitaire.Models;
 
 namespace Solitaire;
@@ -9,23 +10,19 @@ public class Program
     public static void Main()
     {
         var deck = InitializeSolitaireDeck();
-        deck.Shuffle();
-
         var winStacks = InitializeWinStacks();
+        var playStacks = InitializePlayStacks();
+
+        deck.Shuffle();
+        
+        // TODO: add cards to play stacks, remove from deck
     }
 
     private static CardDeck InitializeSolitaireDeck()
     {
         var cards = new List<Card>();
-        var suits = new List<CardSuit>
-        {
-            CardSuit.Clubs,
-            CardSuit.Diamonds,
-            CardSuit.Hearts,
-            CardSuit.Spades,
-        };
 
-        foreach (var suit in suits)
+        foreach (var suit in Constants.Suits)
         {
             cards.Add(new CardAce(suit));
             cards.Add(new CardTwo(suit));
@@ -44,23 +41,27 @@ public class Program
         
         return new CardDeck(cards);
     }
-
     private static IEnumerable<WinStack> InitializeWinStacks()
     {
         var winStacks = new List<WinStack>();
-        var suits = new List<CardSuit>
-        {
-            CardSuit.Clubs,
-            CardSuit.Diamonds,
-            CardSuit.Hearts,
-            CardSuit.Spades,
-        };
-        
-        foreach (var suit in suits)
+
+        foreach (var suit in Constants.Suits)
         {
             winStacks.Add(new WinStack(suit));
         }
 
         return winStacks;
+    }
+
+    private static IEnumerable<PlayStack> InitializePlayStacks()
+    {
+        var playStacks = new List<PlayStack>();
+        
+        for (int i = 0; i < Constants.PlayStacksNum; i++)
+        {
+            playStacks.Add(new PlayStack());
+        }
+
+        return playStacks;
     }
 }
