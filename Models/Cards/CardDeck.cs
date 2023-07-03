@@ -1,4 +1,4 @@
-using Solitaire.Extensions;
+using Models.Extensions;
 
 namespace Models.Cards;
 
@@ -16,7 +16,7 @@ public class CardDeck
         _cards = cards;
     }
     
-    public IEnumerable<Card> Cards => _cards;
+    public IReadOnlyCollection<Card> Cards => _cards;
 
     public void AddCard(Card card)
     {
@@ -25,7 +25,7 @@ public class CardDeck
     
     public void RemoveCard(Card card)
     {
-        // TODO: add checks
+        if (!_cards.Contains(card)) throw new Exception("No such card");
         _cards.Remove(card);
     }
 
@@ -36,15 +36,15 @@ public class CardDeck
 
     public Card GetRandomCard()
     {
-        throw new NotImplementedException();
+        return Cards.GetRandomElement();
     }
 
     public Card GetTopCard()
     {
-        throw new NotImplementedException();
+        return Cards.First();
     }
     public Card GetBottomCard()
     {
-        throw new NotImplementedException();
+        return Cards.Last();
     }
 }

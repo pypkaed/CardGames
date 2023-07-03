@@ -1,6 +1,6 @@
-namespace Solitaire.Extensions;
+namespace Models.Extensions;
 
-public static class ShuffleExtension
+public static class RandomExtensions
 {
     private static readonly Random Rand = new Random();
 
@@ -18,5 +18,11 @@ public static class ShuffleExtension
         }
 
         return shuffledArray;
+    }
+
+    public static T GetRandomElement<T>(this IEnumerable<T> input)
+    {
+        int randomIndex = Rand.Next(input.Count());
+        return input.ElementAt(randomIndex);
     }
 }
