@@ -1,8 +1,10 @@
+using Solitaire.Extensions;
+
 namespace Models.Cards;
 
 public class CardDeck
 {
-    private readonly List<Card> _cards;
+    private List<Card> _cards;
 
     public CardDeck()
     {
@@ -29,7 +31,7 @@ public class CardDeck
 
     public void Shuffle()
     {
-        // throw new NotImplementedException();
+        _cards = _cards.Shuffle().ToList();
     }
 
     public Card GetRandomCard()
