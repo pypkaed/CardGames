@@ -47,4 +47,23 @@ public class CardDeck
     {
         return Cards.Last();
     }
+    public Card PopRandomCard()
+    {
+        var card = Cards.GetRandomElement();
+        _cards.Remove(card);
+        return card;
+    }
+
+    public Card PopTopCard()
+    {
+        var card = Cards.First();
+        _cards.Remove(card);
+        return card;
+    }
+    public Card PopBottomCard()
+    {
+        var card = Cards.Last();
+        _cards.Remove(card);
+        return card;
+    }
 }

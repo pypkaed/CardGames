@@ -9,16 +9,17 @@ public class Program
 {
     public static void Main()
     {
-        var deck = InitializeSolitaireDeck();
+        // TODO: make a separate Game.cs class?
         var winStacks = InitializeWinStacks();
         var playStacks = InitializePlayStacks();
-
-        deck.Shuffle();
         
-        // TODO: add cards to play stacks, remove from deck
+        var deck = FillSolitaireDeck();
+        deck.Shuffle();
+
+        FillPlayStacks(ref playStacks, ref deck);
     }
 
-    private static CardDeck InitializeSolitaireDeck()
+    private static CardDeck FillSolitaireDeck()
     {
         var cards = new List<Card>();
 
@@ -52,7 +53,6 @@ public class Program
 
         return winStacks;
     }
-
     private static IEnumerable<PlayStack> InitializePlayStacks()
     {
         var playStacks = new List<PlayStack>();
@@ -63,5 +63,17 @@ public class Program
         }
 
         return playStacks;
+    }
+
+    private static void FillPlayStacks(ref IEnumerable<PlayStack> playStacks, ref CardDeck deck)
+    {
+        for (int i = 0; i < Constants.PlayStacksNum; i++)
+        {
+            for (int j = 0; j <= i; j++)
+            {
+                var randomCard = deck.PopRandomCard();
+                playStacks.ElementAt(i).AddCard(randomCard);
+            }
+        }
     }
 }
